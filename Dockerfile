@@ -1,5 +1,7 @@
 FROM alpine:3.10
 
+MAINTAINER dezinger@gmail.com
+
 ARG WEB_DOCUMENT_ROOT="/var/www"
 ARG COMPOSER_VER="1.9.3"
 
@@ -61,6 +63,7 @@ RUN set -xe \
         php7-sysvmsg \
         php7-sysvsem \
         php7-sysvshm \
+        php7-simplexml \
 # Setup composer and global libs
     && php -r "readfile('http://getcomposer.org/installer');" | \
     php -- --install-dir=/usr/local/bin/ --version=${COMPOSER_VER} --filename=composer \
